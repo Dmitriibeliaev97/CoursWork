@@ -47,8 +47,8 @@ public class Main {
 
     public static void isSumSalary (Employee[] arr) {
         double total = 0;
-        for (int i = 0; i < arr.length; i++) {
-            total += arr[i].getSalary();
+        for (Employee employee : arr) {
+            total += employee.getSalary();
         }
         System.out.println("Сумма затрат на зарплаты в месяц = " + total);
         System.out.println();
@@ -58,10 +58,10 @@ public class Main {
     public static void isMaxSalary(Employee[] arr) {
         double maxSalary = -1;
         Fio fio = null;
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i].getSalary() > maxSalary) {
-                maxSalary = arr[i].getSalary();
-                fio = arr[i].getFio();
+        for (Employee employee : arr) {
+            if (employee.getSalary() > maxSalary) {
+                maxSalary = employee.getSalary();
+                fio = employee.getFio();
             }
         }
         System.out.println("Сотрудник с максимальной зарплатой: " + fio + ". Зарплата: " + maxSalary);
@@ -71,10 +71,10 @@ public class Main {
     public static void isMinSalary(Employee[] arr) {
         double minSalary = 1000000000;
         Fio fio = null;
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i].getSalary() < minSalary) {
-                minSalary = arr[i].getSalary();
-                fio = arr[i].getFio();
+        for (Employee employee : arr) {
+            if (employee.getSalary() < minSalary) {
+                minSalary = employee.getSalary();
+                fio = employee.getFio();
             }
         }
         System.out.println("Сотрудник с минимальной зарплатой: " + fio + ". Зарплата: " + minSalary);
@@ -83,8 +83,8 @@ public class Main {
     public static void isAverageSalary (Employee[] arr) {
         double total = 0;
         int averageSalary = 0;
-        for (int i = 0; i < arr.length; i++) {
-            total += arr[i].getSalary();
+        for (Employee employee : arr) {
+            total += employee.getSalary();
             averageSalary = (int) (total / arr.length);
         }
         System.out.println("Сумма затрат на зарплаты в месяц = " + averageSalary);

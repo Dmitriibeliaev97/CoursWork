@@ -1,8 +1,8 @@
 public class Employee {
     private double salary;
     private int department;
-    private int id;
-    private Fio fio;
+    private final int id;
+    private final Fio fio;
 
     public Employee(double salary, int department, Fio fio) {
         this.salary = salary;
