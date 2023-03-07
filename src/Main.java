@@ -90,15 +90,11 @@ public class Main {
     }
 
     public static void fio (Fio[] arr) {
-        System.out.println(arr[0]);
-        System.out.println(arr[1]);
-        System.out.println(arr[2]);
-        System.out.println(arr[3]);
-        System.out.println(arr[4]);
-        System.out.println(arr[5]);
-        System.out.println(arr[6]);
-        System.out.println(arr[7]);
-        System.out.println(arr[8]);
-        System.out.println(arr[9]);
+        for (Fio fio : arr) {
+            System.out.println(fio);
+
+
+        }
+
     }
 }
