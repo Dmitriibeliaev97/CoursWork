@@ -4,6 +4,7 @@ public class Employee {
     private final int id;
     private final Fio fio;
 
+    
     public Employee(double salary, int department, Fio fio) {
         this.salary = salary;
         this.department = department;
