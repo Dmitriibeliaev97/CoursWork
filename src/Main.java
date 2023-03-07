@@ -56,28 +56,24 @@ public class Main {
 
 
     public static void isMaxSalary(Employee[] arr) {
-        double maxSalary = -1;
-        Fio fio = null;
+        Employee employeeWithMaxSalary = arr[0];
         for (Employee employee : arr) {
-            if (employee.getSalary() > maxSalary) {
-                maxSalary = employee.getSalary();
-                fio = employee.getFio();
+            if (employee.getSalary() > employeeWithMaxSalary.getSalary()) {
+                employeeWithMaxSalary = employee;
             }
         }
-        System.out.println("Сотрудник с максимальной зарплатой: " + fio + ". Зарплата: " + maxSalary);
+        System.out.println("Сотрудник с максимальной зарплатой: " + employeeWithMaxSalary.getFio() + ". Зарплата: " + employeeWithMaxSalary.getSalary());
         System.out.println();
 
     }
     public static void isMinSalary(Employee[] arr) {
-        double minSalary = 1000000000;
-        Fio fio = null;
+        Employee employeeWithMinSalary = arr[0];
         for (Employee employee : arr) {
-            if (employee.getSalary() < minSalary) {
-                minSalary = employee.getSalary();
-                fio = employee.getFio();
+            if (employee.getSalary() < employeeWithMinSalary.getSalary()) {
+                employeeWithMinSalary = employee;
             }
         }
-        System.out.println("Сотрудник с минимальной зарплатой: " + fio + ". Зарплата: " + minSalary);
+        System.out.println("Сотрудник с минимальной зарплатой: " + employeeWithMinSalary.getFio() + ". Зарплата: " + employeeWithMinSalary.getSalary());
         System.out.println();
     }
     public static void isAverageSalary (Employee[] arr) {
