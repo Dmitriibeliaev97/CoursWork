@@ -82,11 +82,7 @@ public class Main {
         System.out.println();
     }
     public static double averageSalary (Employee[] arr) {
-        double total = 0;
-        for (Employee employee : arr) {
-            total += employee.getSalary();
-        }
-        return total / arr.length;
+        return sumSalary(arr) / arr.length;
     }
 
     public static void fio (Fio[] arr) {
