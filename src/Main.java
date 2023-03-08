@@ -1,7 +1,8 @@
 public class Main {
+    static Employee[] employees = new Employee[10];
+    static Fio[] fioBase = new Fio[10];
     public static void main(String[] args) {
 
-        Fio[] fioBase = new Fio[10];
         fioBase[0] = new Fio("Dmitrii", "Vladimirovich", "Beliaev");
         fioBase[1] = new Fio("Alexandr", "Alexandrovich", "Rubanov");
         fioBase[2] = new Fio("Pavel", "Alexandrovich", "Bazhura");
@@ -13,7 +14,6 @@ public class Main {
         fioBase[8] = new Fio("Tatiana", "Viacheslavovna", "Urisman");
         fioBase[9] = new Fio("Natalia", "Vladimirovna", "Zernova");
 
-        Employee[] employees = new Employee[10];
         employees[0] = new Employee(54100, 1, fioBase[0]);
         employees[1] = new Employee(43500, 2, fioBase[1]);
         employees[2] = new Employee(66300, 3, fioBase[2]);
@@ -51,18 +51,18 @@ public class Main {
         System.out.println("Средняя зарплата в месяц = " + averageSalary);
     }
 
-    public static double sumSalary (Employee[] arr) {
+    public static double sumSalary (Employee[] employees) {
         double total = 0;
-        for (Employee employee : arr) {
+        for (Employee employee : employees) {
             total += employee.getSalary();
         }
         return total;
     }
 
 
-    public static void maxSalary(Employee[] arr) {
-        Employee employeeWithMaxSalary = arr[0];
-        for (Employee employee : arr) {
+    public static void maxSalary(Employee[] employees) {
+        Employee employeeWithMaxSalary = employees[0];
+        for (Employee employee : employees) {
             if (employee.getSalary() > employeeWithMaxSalary.getSalary()) {
                 employeeWithMaxSalary = employee;
             }
@@ -71,9 +71,9 @@ public class Main {
         System.out.println();
 
     }
-    public static void minSalary(Employee[] arr) {
-        Employee employeeWithMinSalary = arr[0];
-        for (Employee employee : arr) {
+    public static void minSalary(Employee[] employees) {
+            Employee employeeWithMinSalary = employees[0];
+        for (Employee employee : employees) {
             if (employee.getSalary() < employeeWithMinSalary.getSalary()) {
                 employeeWithMinSalary = employee;
             }
@@ -81,12 +81,12 @@ public class Main {
         System.out.println("Сотрудник с минимальной зарплатой: " + employeeWithMinSalary.getFio() + ". Зарплата: " + employeeWithMinSalary.getSalary());
         System.out.println();
     }
-    public static double averageSalary (Employee[] arr) {
-        return sumSalary(arr) / arr.length;
+    public static double averageSalary (Employee[] employees) {
+        return sumSalary(employees) / employees.length;
     }
 
-    public static void fio (Fio[] arr) {
-        for (Fio fio : arr) {
+    public static void fio (Fio[] fioBase) {
+        for (Fio fio : fioBase) {
             System.out.println(fio);
 
 
