@@ -38,20 +38,20 @@ public class Main {
 
         System.out.println();
 
-        sumSalary(employees);
-        maxSalary(employees);
-        minSalary(employees);
-        averageSalary(employees);
-        fio(fioBase);
+        sumSalary();
+        maxSalary();
+        minSalary();
+        averageSalary();
+        fio();
 
-        double sum = sumSalary(employees);
-        double averageSalary = averageSalary(employees);
+        double sum = sumSalary();
+        double averageSalary = averageSalary();
         System.out.println();
         System.out.println("Сумма затрат на зарплаты в месяц = " + sum);
         System.out.println("Средняя зарплата в месяц = " + averageSalary);
     }
 
-    public static double sumSalary (Employee[] employees) {
+    public static double sumSalary () {
         double total = 0;
         for (Employee employee : employees) {
             total += employee.getSalary();
@@ -60,7 +60,7 @@ public class Main {
     }
 
 
-    public static void maxSalary(Employee[] employees) {
+    public static void maxSalary() {
         Employee employeeWithMaxSalary = employees[0];
         for (Employee employee : employees) {
             if (employee.getSalary() > employeeWithMaxSalary.getSalary()) {
@@ -71,7 +71,7 @@ public class Main {
         System.out.println();
 
     }
-    public static void minSalary(Employee[] employees) {
+    public static void minSalary() {
             Employee employeeWithMinSalary = employees[0];
         for (Employee employee : employees) {
             if (employee.getSalary() < employeeWithMinSalary.getSalary()) {
@@ -81,15 +81,13 @@ public class Main {
         System.out.println("Сотрудник с минимальной зарплатой: " + employeeWithMinSalary.getFio() + ". Зарплата: " + employeeWithMinSalary.getSalary());
         System.out.println();
     }
-    public static double averageSalary (Employee[] employees) {
-        return sumSalary(employees) / employees.length;
+    public static double averageSalary () {
+        return sumSalary() / employees.length;
     }
 
-    public static void fio (Fio[] fioBase) {
+    public static void fio () {
         for (Fio fio : fioBase) {
             System.out.println(fio);
-
-
         }
 
     }
