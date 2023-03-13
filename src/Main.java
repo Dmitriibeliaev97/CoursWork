@@ -45,7 +45,7 @@ public class Main {
         System.out.println("Сумма затрат на зарплаты в месяц = " + sum);
         System.out.println("Средняя зарплата в месяц = " + averageSalary);
         maxSalary();
-        minSalary(5);
+        minSalary(3);
         averageSalary();
         fio();
         getIndexSalary(0.1);
@@ -75,7 +75,6 @@ public class Main {
             Employee employeeWithMinSalary = employees[0];
         for (Employee employee : employees) {
             if (employee.getDepartment() == department) {
-                if (employee.getSalary() < employeeWithMinSalary.getSalary());
                 employeeWithMinSalary = employee;
                 }
         }
