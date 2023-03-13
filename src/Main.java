@@ -50,7 +50,21 @@ public class Main {
         fio();
         System.out.println();
         System.out.println("Повышенная сложность:");
+        System.out.println("Пункт 1:");
+        indexSalaryForAll(0.10);
+        System.out.println("Проиндексированная зарплата всех сотрудников:");
+        System.out.println(employees[0].toString());
+        System.out.println(employees[1].toString());
+        System.out.println(employees[2].toString());
+        System.out.println(employees[3].toString());
+        System.out.println(employees[4].toString());
+        System.out.println(employees[5].toString());
+        System.out.println(employees[6].toString());
+        System.out.println(employees[7].toString());
+        System.out.println(employees[8].toString());
+        System.out.println(employees[9].toString());
         System.out.println();
+        System.out.println("Пункт 2:");
         System.out.println("a.:");
         minSalaryByDepartment(2);
         System.out.println("b.:");
@@ -63,6 +77,12 @@ public class Main {
         getIndexSalary(0.1, 2);
         System.out.println("f.:");
         getEmployeesByDepartment(2);
+        System.out.println();
+        System.out.println("Пункт 3:");
+        System.out.println("a.:");
+        getEmployeeWithSalaryLess(60000);
+        System.out.println("b.:");
+        getEmployeeWithSalaryMore(70000);
     }
     public static double sumSalary () {
         double total = 0;
@@ -159,6 +179,31 @@ public class Main {
     public static void getEmployeesByDepartment(int department) {
         for (Employee employee : employees) {
             if (employee.getDepartment() == department) {
+                System.out.println("id: " + employee.getId() + " Ф.И.О: " + employee.getFio() + ", Зарплата " + employee.getSalary());
+            }
+        }
+    }
+
+    public static double indexSalaryForAll(double index) {
+        double newSalary = 0;
+        for (Employee employee : employees) {
+            newSalary = employee.getSalary() + (employee.getSalary() * index);
+            employee.setSalary(newSalary);
+        }
+        return newSalary;
+    }
+
+    public static void getEmployeeWithSalaryLess(int threshold) {
+        for (Employee employee : employees) {
+            if (employee.getSalary() < threshold) {
+                System.out.println("id: " + employee.getId() + " Ф.И.О: " + employee.getFio() + ", Зарплата " + employee.getSalary());
+            }
+        }
+    }
+
+    public static void getEmployeeWithSalaryMore(int minSalary) {
+        for (Employee employee : employees) {
+            if (employee.getSalary() >= minSalary) {
                 System.out.println("id: " + employee.getId() + " Ф.И.О: " + employee.getFio() + ", Зарплата " + employee.getSalary());
             }
         }
