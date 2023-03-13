@@ -39,16 +39,16 @@ public class Main {
         System.out.println();
 
         sumSalary();
-        maxSalary();
-        minSalary();
-        averageSalary();
-        fio();
-
         double sum = sumSalary();
         double averageSalary = averageSalary();
         System.out.println();
         System.out.println("Сумма затрат на зарплаты в месяц = " + sum);
         System.out.println("Средняя зарплата в месяц = " + averageSalary);
+        maxSalary();
+        minSalary();
+        averageSalary();
+        fio();
+        getIndexSalary(0.1);
     }
 
     public static double sumSalary () {
@@ -90,5 +90,13 @@ public class Main {
             System.out.println(fio);
         }
 
+    }
+
+    public static void getIndexSalary(double index) {
+        double newSalary = 0;
+        for (Employee employee : employees) {
+            newSalary = employee.getSalary() + (employee.getSalary() * index);
+            System.out.println("Проиндексированная зарплата сотрудника " + employee.getFio() + ": " + newSalary);
+        }
     }
 }
