@@ -133,13 +133,17 @@ public class Main {
     }
 
     public static void getAverageSalaryByDepartment(int department) {
+        int counter = 0;
+        double total = 0;
         double averageSalaryByDepartment = 0;
         for (Employee employee : employees) {
             if (employee.getDepartment() == department) {
-                averageSalaryByDepartment = employee.getSalary() / employees.length;
+                ++counter;
+                total += employee.getSalary();
             }
+            averageSalaryByDepartment = total / counter;
         }
-        System.out.println(averageSalaryByDepartment);
+        System.out.println("Средняя зарплата по отделу " + department + ": " + averageSalaryByDepartment);
     }
 
     public static void getIndexSalary(double index, int department) {
