@@ -45,7 +45,7 @@ public class Main {
         System.out.println("Сумма затрат на зарплаты в месяц = " + sum);
         System.out.println("Средняя зарплата в месяц = " + averageSalary);
         maxSalary();
-        minSalary();
+        minSalary(5);
         averageSalary();
         fio();
         getIndexSalary(0.1);
@@ -71,14 +71,15 @@ public class Main {
         System.out.println();
 
     }
-    public static void minSalary() {
+    public static void minSalary(int department) {
             Employee employeeWithMinSalary = employees[0];
         for (Employee employee : employees) {
-            if (employee.getSalary() < employeeWithMinSalary.getSalary()) {
+            if (employee.getDepartment() == department) {
+                if (employee.getSalary() < employeeWithMinSalary.getSalary());
                 employeeWithMinSalary = employee;
-            }
+                }
         }
-        System.out.println("Сотрудник с минимальной зарплатой: " + employeeWithMinSalary.getFio() + ". Зарплата: " + employeeWithMinSalary.getSalary());
+        System.out.println("Сотрудник с минимальной зарплатой в отделе " + department + ": " + employeeWithMinSalary.getFio() + ". Зарплата: " + employeeWithMinSalary.getSalary());
         System.out.println();
     }
     public static double averageSalary () {
@@ -96,7 +97,7 @@ public class Main {
         double newSalary = 0;
         for (Employee employee : employees) {
             newSalary = employee.getSalary() + (employee.getSalary() * index);
-            System.out.println("Проиндексированная зарплата сотрудника " + employee.getFio() + ": " + newSalary);
+           // System.out.println("Проиндексированная зарплата сотрудника " + employee.getFio() + ": " + newSalary);
         }
     }
 }
