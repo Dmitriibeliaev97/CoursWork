@@ -38,12 +38,10 @@ public class Main {
 
         System.out.println();
 
-        sumSalary();
-        double sum = sumSalary();
         double averageSalary = averageSalary();
         System.out.println();
-        System.out.println("Сумма затрат на зарплаты в месяц = " + sum);
-        System.out.println("Средняя зарплата в месяц = " + averageSalary);
+        System.out.println("Сумма затрат на зарплаты в месяц по отделу = " + sumSalary(1));
+        System.out.println("Средняя зарплата в месяц по отделу = " + averageSalary);
         maxSalary(2);
         minSalary(2);
         averageSalary();
@@ -51,10 +49,12 @@ public class Main {
         getIndexSalary(0.1);
     }
 
-    public static double sumSalary () {
+    public static double sumSalary (int department) {
         double total = 0;
         for (Employee employee : employees) {
-            total += employee.getSalary();
+            if (employee.getDepartment() == department) {
+                total += employee.getSalary();
+            }
         }
         return total;
     }
@@ -86,7 +86,7 @@ public class Main {
         System.out.println();
     }
     public static double averageSalary () {
-        return sumSalary() / employees.length;
+        return sumSalary(1) / employees.length;
     }
 
     public static void fio () {
