@@ -42,24 +42,27 @@ public class Main {
         System.out.println();
         System.out.println("Сумма затрат на зарплаты в месяц по отделу = " + sumSalary());
         System.out.println("Средняя зарплата в месяц по отделу = " + averageSalary);
+        System.out.println();
 
         maxSalary();
-
         minSalary();
-
         averageSalary();
-
         fio();
-
-        getIndexSalary(0.1);
-
+        System.out.println();
+        System.out.println("Повышенная сложность:");
+        System.out.println();
+        System.out.println("a.:");
         minSalaryByDepartment(2);
-
+        System.out.println("b.:");
         maxSalaryByDepartment(2);
-
+        System.out.println("c.:");
         sumSalaryByDepartment(2);
-
+        System.out.println("d.:");
         getAverageSalaryByDepartment(2);
+        System.out.println("e.:");
+        getIndexSalary(0.1, 2);
+        System.out.println("f.:");
+        getEmployeesByDepartment(2);
     }
     public static double sumSalary () {
         double total = 0;
@@ -72,18 +75,19 @@ public class Main {
         Employee employeeWithMaxSalary = employees[0];
         for (Employee employee : employees) {
             if (employee.getSalary() > employeeWithMaxSalary.getSalary()) {
-                System.out.println();
+                employeeWithMaxSalary = employee;
             }
         }
+        System.out.println("Сотрудник с максимальной зарплатой: " + employeeWithMaxSalary.getFio() + ". Зарплата: " + employeeWithMaxSalary.getSalary());
     }
     public static void minSalary() {
         Employee employeeWithMinSalary = employees[0];
         for (Employee employee : employees) {
             if (employee.getSalary() < employeeWithMinSalary.getSalary()) {
-                System.out.println("Сотрудник с минимальной зарплатой: " + employeeWithMinSalary.getFio() + ". Зарплата: " + employeeWithMinSalary.getSalary());
-                System.out.println();
+                employeeWithMinSalary = employee;
             }
         }
+        System.out.println("Сотрудник с минимальной зарплатой: " + employeeWithMinSalary.getFio() + ". Зарплата: " + employeeWithMinSalary.getSalary());
     }
     public static double averageSalary () {
         return sumSalary() / employees.length;
@@ -93,7 +97,6 @@ public class Main {
         for (Fio fio : fioBase) {
             System.out.println(fio);
         }
-
     }
     public static void minSalaryByDepartment(int department) {
         Employee employeeWithMinSalary = employees[0];
@@ -105,7 +108,6 @@ public class Main {
             }
         }
         System.out.println("Сотрудник с минимальной зарплатой в отделе " + department + ": " + employeeWithMinSalary.getFio() + ". Зарплата: " + employeeWithMinSalary.getSalary());
-        System.out.println();
     }
     public static void maxSalaryByDepartment(int department) {
         Employee employeeWithMaxSalary = employees[0];
@@ -117,7 +119,6 @@ public class Main {
             }
         }
         System.out.println("Сотрудник с максимальной зарплатой в отделе " + department + ": " + employeeWithMaxSalary.getFio() + ". Зарплата: " + employeeWithMaxSalary.getSalary());
-        System.out.println();
 
     }
 
@@ -129,19 +130,35 @@ public class Main {
             }
         }
         System.out.println("Сумму затрат на зарплату по отделу " + department + ": " + total);
-        System.out.println();
     }
 
     public static void getAverageSalaryByDepartment(int department) {
-
+        double averageSalaryByDepartment = 0;
+        for (Employee employee : employees) {
+            if (employee.getDepartment() == department) {
+                averageSalaryByDepartment = employee.getSalary() / employees.length;
+            }
+        }
+        System.out.println(averageSalaryByDepartment);
     }
 
-    public static void getIndexSalary(double index) {
+    public static void getIndexSalary(double index, int department) {
         double newSalary = 0;
         for (Employee employee : employees) {
-            newSalary = employee.getSalary() + (employee.getSalary() * index);
-            System.out.println("Проиндексированная зарплата сотрудника " + employee.getFio() + ": " + newSalary);
+            if (employee.getDepartment() == department) {
+                newSalary = employee.getSalary() + (employee.getSalary() * index);
+                System.out.println("Проиндексированная зарплата сотрудника " + employee.getFio() + ": " + newSalary);
+            }
         }
-        System.out.println();
+    }
+
+    public static void getEmployeesByDepartment(int department) {
+        Fio employeesByDepartment = null;
+        for (Employee employee : employees) {
+            if (employee.getDepartment() == department) {
+                employeesByDepartment = employee.getFio();
+                }
+        }
+        System.out.println(employeesByDepartment);
     }
 }
