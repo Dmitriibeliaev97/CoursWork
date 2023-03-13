@@ -157,12 +157,10 @@ public class Main {
     }
 
     public static void getEmployeesByDepartment(int department) {
-        Fio employeesByDepartment = null;
         for (Employee employee : employees) {
             if (employee.getDepartment() == department) {
-                employeesByDepartment = employee.getFio();
-                }
+                System.out.println("id: " + employee.getId() + " Ф.И.О: " + employee.getFio() + ", Зарплата " + employee.getSalary());
+            }
         }
-        System.out.println(employeesByDepartment);
     }
 }
