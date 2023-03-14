@@ -167,11 +167,10 @@ public class Main {
     }
 
     public static void getIndexSalary(double index, int department) {
-        double newSalary = 0;
         for (Employee employee : employees) {
             if (employee.getDepartment() == department) {
-                newSalary = employee.getSalary() + (employee.getSalary() * index);
-                System.out.println("Проиндексированная зарплата сотрудника " + employee.getFio() + ": " + newSalary);
+                employee.setSalary(employee.getSalary() + employee.getSalary() * index);
+                System.out.println("Проиндексированная зарплата сотрудника " + employee.getFio() + ": " + employee.getSalary());
             }
         }
     }
