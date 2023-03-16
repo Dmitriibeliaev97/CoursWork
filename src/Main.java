@@ -70,8 +70,9 @@ public class Main {
         System.out.println("b.:");
         maxSalaryByDepartment(2);
         System.out.println("c.:");
-        sumSalaryByDepartment(2);
+        System.out.println("Сумма затрат на зарплату по отделу: " +  sumSalaryByDepartment(2));
         System.out.println("d.:");
+       // System.out.println("Средня зарпалат по отделу: " + getAverageSalaryByDepartment(2));
         getAverageSalaryByDepartment(2);
         System.out.println("e.:");
         getIndexSalary(0.1, 2);
@@ -150,28 +151,26 @@ public class Main {
 
     }
 
-    public static void sumSalaryByDepartment (int department) {
+    public static double sumSalaryByDepartment (int department) {
         double total = 0;
         for (Employee employee : employees) {
             if (employee.getDepartment() == department) {
                 total += employee.getSalary();
             }
         }
-        System.out.println("Сумму затрат на зарплату по отделу " + department + ": " + total);
+        return total;
     }
 
     public static void getAverageSalaryByDepartment(int department) {
         int counter = 0;
         double total = 0;
-        double averageSalaryByDepartment = 0;
         for (Employee employee : employees) {
             if (employee.getDepartment() == department) {
                 ++counter;
                 total += employee.getSalary();
             }
-            averageSalaryByDepartment = total / counter;
         }
-        System.out.println("Средняя зарплата по отделу " + department + ": " + averageSalaryByDepartment);
+         System.out.println("Средняя зарплата по отделу " + department + ": " + sumSalaryByDepartment(department)/counter);
     }
 
     public static void getIndexSalary(double index, int department) {
