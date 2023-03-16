@@ -119,26 +119,34 @@ public class Main {
         }
     }
     public static void minSalaryByDepartment(int department) {
-        Employee employeeWithMinSalary = employees[0];
+        Employee employeeWithMinSalary = null;
         for (Employee employee : employees) {
             if (employee.getDepartment() == department) {
-                if (employee.getSalary() < employeeWithMinSalary.getSalary()) {
-                    employeeWithMinSalary = employee;
+                if (employeeWithMinSalary == null || employee.getSalary() < employeeWithMinSalary.getSalary()) {
+                        employeeWithMinSalary = employee;
                 }
             }
         }
-        System.out.println("Сотрудник с минимальной зарплатой в отделе " + department + ": " + employeeWithMinSalary.getFio() + ". Зарплата: " + employeeWithMinSalary.getSalary());
+        if (employeeWithMinSalary != null) {
+            System.out.println("Сотрудник с минимальной зарплатой в отделе " + department + ": " + employeeWithMinSalary.getFio() + ". Зарплата: " + employeeWithMinSalary.getSalary());
+        } else {
+            System.out.println("Сотрудников в отделе " + department + " нет");
+        }
     }
     public static void maxSalaryByDepartment(int department) {
-        Employee employeeWithMaxSalary = employees[0];
+        Employee employeeWithMaxSalary = null;
         for (Employee employee : employees) {
             if (employee.getDepartment() == department) {
-                if (employee.getSalary() > employeeWithMaxSalary.getSalary()) {
+                if (employeeWithMaxSalary == null || employee.getSalary() > employeeWithMaxSalary.getSalary()) {
                     employeeWithMaxSalary = employee;
                 }
             }
         }
-        System.out.println("Сотрудник с максимальной зарплатой в отделе " + department + ": " + employeeWithMaxSalary.getFio() + ". Зарплата: " + employeeWithMaxSalary.getSalary());
+        if (employeeWithMaxSalary != null) {
+            System.out.println("Сотрудник с максимальной зарплатой в отделе " + department + ": " + employeeWithMaxSalary.getFio() + ". Зарплата: " + employeeWithMaxSalary.getSalary());
+        } else {
+            System.out.println("Сотрудников в отделе " + department + " нет");
+        }
 
     }
 
