@@ -163,11 +163,9 @@ public class Main {
 
     public static void getAverageSalaryByDepartment(int department) {
         int counter = 0;
-        double total = 0;
         for (Employee employee : employees) {
             if (employee.getDepartment() == department) {
                 ++counter;
-                total += employee.getSalary();
             }
         }
          System.out.println("Средняя зарплата по отделу " + department + ": " + sumSalaryByDepartment(department)/counter);
